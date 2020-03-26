@@ -1,0 +1,28 @@
+<div class="container-publication-post">
+    <div class="form-publication">
+        <form #forma="ngForm" (ngSubmit)="submit(forma)" autocomplete="off">
+            <div class="form-group" [ngClass]="{'has-success': img.valid && img.touched,'has-danger':img.invalid && img.touched}">
+                <label for="idImg">Url imagen :</label>
+                <input type="email" name="img" #img="ngModel" class="form-control" [ngClass]="{'is-valid': img.valid && img.touched,'is-invalid': img.invalid && img.touched}" id="idImg" aria-describedby="emailHelp" required [(ngModel)]="data.img">
+                <small id="idImg" class="form-text text-muted">Ingrese url imagen</small>
+            </div>
+            <div class="form-group" [ngClass]="{'has-success': description.valid && description.touched,'has-danger':description.invalid && description.touched}">
+                <label for="idDescription">Descripción :</label>
+                <textarea name="description" #description="ngModel" id="idDescription" class="form-control" required [(ngModel)]="data.description" [ngClass]="{'is-valid': description.valid && description.touched,'is-invalid': description.invalid && description.touched}"></textarea>
+            </div>
+            <button type="submit" [disabled]="forma.invalid" class="btn btn-primary btn-block">Crear
+                Publicación</button>
+        </form>
+
+    </div>
+
+    <div class="card-publication">
+        <div class="card" style="width: 18rem;">
+            <img [src]="data.img || 'https://advancepetproduct.com/wp-content/uploads/2019/04/no-image.png'" class="card-img-top" alt="Img referential">
+            <div class="card-body">
+                <h5 class="card-title">{{user.name | uppercase}}</h5>
+                <p class="card-text" id>{{data.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>

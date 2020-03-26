@@ -1,0 +1,25 @@
+.root_login {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-router-login {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+@media (max-width:400px) {
+    .btn-router-login {
+        position: fixed;
+        top: .5rem;
+        right: .5rem;
+        font-size: .5rem;
+        & i {
+            font-size: .6rem;
+        }
+    }
+}

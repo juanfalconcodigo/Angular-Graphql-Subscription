@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "Me-Front": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Me-Front"
+    }
+  },
+  "defaultProject": "Me-Front",
+  "cli": {
+    "analytics": "b3c38fa7-0805-4ccd-aa4a-706a42059d87"
+  }
 }

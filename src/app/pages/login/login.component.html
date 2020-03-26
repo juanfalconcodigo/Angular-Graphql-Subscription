@@ -1,0 +1,38 @@
+<div class="root_login">
+    <button type="button" class="btn-router-login btn btn-primary" [routerLink]="['/register']"><i class="fas fa-forward"></i></button>
+    <form #forma="ngForm" (ngSubmit)="submit(forma)" autocomplete="off">
+        <div class="form-group" [ngClass]="{'has-success': email.valid&&email.touched,'has-danger':email.invalid&&email.touched}">
+            <label for="inputEmail">Email :</label>
+            <input type="email" name="email" #email="ngModel" class="form-control" [ngClass]="{'is-valid':email.valid&&email.touched,'is-invalid':email.invalid&&email.touched }" id="inputEmail" aria-describedby="emailHelp" [(ngModel)]="data.email" required="true"
+                minlength="6" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$">
+            <small id="emailHelp" class="form-text text-muted">Minimo deve tener 6 carácteres.</small>
+            <div class="valid-feedback">Email ingresado correctamente.</div>
+            <div *ngIf="email.invalid&&(email.touched||email.dirty)" class="alert alert-danger mt-2">
+                <div *ngIf="email.errors.required">
+                    El email es necesario
+                </div>
+                <!-- <div *ngIf="email.errors&&email.errors.minlength">
+                    Minimo deve ingresar {{email.errors.minlength.requiredLength}} carácteres
+                </div> -->
+                <div *ngIf="email.errors&&email.errors.pattern">
+                    Verifique que es un email válido
+                </div>
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-danger':password.invalid&&password.touched,'has-success':password.valid&&password.touched}">
+            <label for="inputPassword">Password :</label>
+            <input type="password" name="password" #password="ngModel" [ngClass]="{'is-valid':password.valid&&password.touched,'is-invalid':password.invalid&&password.touched}" class="form-control" id="inputPassword" [(ngModel)]="data.password" required="true" minlength="6">
+            <div class="valid-feedback">Contraseña ingresada correctamente.</div>
+            <div *ngIf="password.invalid&&(password.dirty||password.touched)" class="alert alert-danger mt-2">
+                <div *ngIf="password.errors.required">La contraseña es necesaria</div>
+                <div *ngIf="password.errors.minlength">Mínimo tiene que ser de {{password.errors.minlength.requiredLength}} carácteres</div>
+            </div>
+
+        </div>
+        <!-- <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div> -->
+        <button [disabled]="forma.invalid" type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+</div>

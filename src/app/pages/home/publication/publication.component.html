@@ -1,0 +1,30 @@
+<div class="container-publication p-5">
+    <div *ngIf="loading">
+        <i class="fas fa-circle-notch fa-7x fa-spin"></i>
+    </div>
+
+    <div class="container m-auto" *ngIf="!loading">
+        <div class="card-columns">
+            <div *ngFor="let publication of publications" class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4 objetfitcover">
+                        <img [src]="publication.img" class="card-img" alt="Image referential">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{publication.createAt | date:'EEEE, MMMM d, y, h:mm:ss a'}}</h5>
+                            <p class="card-text"><i class="fas fa-heart"></i> {{publication.votes}}</p>
+                            <p class="card-text">{{publication.description | truncate:60:true}}</p>
+                            <p class="card-text text-muted d-flex justify-content-around align-items-center">
+                                <i class="far fa-thumbs-up fa-2x cursor-pointer" (click)="addVote(publication._id,user._id)"></i>
+                                <i class="far fa-thumbs-down fa-2x cursor-pointer" (click)="deleteVote(publication._id,user._id)"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

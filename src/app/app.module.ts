@@ -1,18 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GraphqlModule } from './modules/graphql/graphql/graphql.module';
+//region LOCALE_ID
+import { registerLocaleData } from '@angular/common';
+import localeEsPE from '@angular/common/locales/es-PE';
+registerLocaleData(localeEsPE, 'es-Pe');
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GraphqlModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: "es-Pe" }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

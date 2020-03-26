@@ -1,0 +1,30 @@
+.root_register {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .btn-router-register {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    & form {
+        max-width: 500px;
+        margin: 2rem;
+    }
+}
+
+@media (max-width:400px) {
+    .root_register {
+        & .btn-router-register {
+            position: fixed;
+            top: .5rem;
+            right: .5rem;
+            font-size: .5rem;
+            & i {
+                font-size: .6rem;
+            }
+        }
+    }
+}
